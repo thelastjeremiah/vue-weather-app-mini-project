@@ -10,15 +10,10 @@ yarn install
 yarn serve
 ```
 
-### Compiles and minifies for production
+### Tech Stacked 
 ```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
+Tailwind
+Vue.js
+Openweathermap
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
