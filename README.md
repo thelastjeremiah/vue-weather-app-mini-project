@@ -10,7 +10,7 @@ yarn install
 yarn serve
 ```
 
-### Tech Stacked 
+### Tech Stack
 ```
 Tailwind
 Vue.js
