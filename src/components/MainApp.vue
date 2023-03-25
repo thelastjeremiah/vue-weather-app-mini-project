@@ -1,10 +1,10 @@
 <template>
   <div class="flex justify-center items-center h-screen bg-main">
-    <div class="bg-[#191b1c] p-6 rounded-md">
+    <div class="bg-[#191b1c77] p-6 rounded-md">
       <form v-on:submit.prevent="getWeather" class="flex justify-center items-center ">
         <input type="text" v-model="city" placeholder="Enter a city name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline placeholder:Poppins-font">
-        <button type="submit" class="bg-rose-700 rounded-full p-1.5 mx-4">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-slate-50">
+        <button type="submit" class="bg-[#fcfcfcf8] rounded-full p-1.5 mx-4">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-orange-700 ">
             <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
           </svg>
         </button>
@@ -27,7 +27,7 @@
         </div>
       </div>
       <div v-if="errorMsg" class="flex justify-center my-10">
-        <span class="text-white font-medium Poppins-font">{{ errorMsg }}</span>
+        <span class="text-white font-medium Poppins-font uppercase">{{ errorMsg }}</span>
       </div>
     </div>
   </div>
@@ -57,7 +57,7 @@ export default {
         console.log(this.weatherData)
       } catch (error) {
         console.log(error);
-        this.errorMsg = 'This City Does Not Exist In Our DataBase';
+        this.errorMsg = 'this city does not exist in our database';
         this.weatherData = null;
       } finally {
         this.loading = false;
