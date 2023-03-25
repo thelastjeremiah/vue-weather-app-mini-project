@@ -1,7 +1,7 @@
 <template>
   <div class="flex justify-center items-center h-screen bg-main">
-    <div class="bg-[#191b1c77] p-6 rounded-md">
-      <form v-on:submit.prevent="getWeather" class="flex justify-center items-center ">
+    <div class="bg-[#191b1c77] p-6 rounded-md mx-5">
+      <form v-on:submit.prevent="getWeather" class="flex justify-center items-center">
         <input type="text" v-model="city" placeholder="Enter a city name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline placeholder:Poppins-font">
         <button type="submit" class="bg-[#fcfcfcf8] rounded-full p-1.5 mx-4">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-orange-700 ">
@@ -11,7 +11,7 @@
       </form>
       <div v-if="loading">
         <div class="flex justify-center items-center mx-10">
-          <div class="inline-block animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-rose-700 mt-10  "></div> 
+          <div class="inline-block animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-rose-700 mt-10 "></div> 
         </div>
       </div>
       <div v-if="weatherData">
