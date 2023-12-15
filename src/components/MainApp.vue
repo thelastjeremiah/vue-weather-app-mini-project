@@ -9,25 +9,16 @@
           </svg>
         </button>
       </form>
+
       <div v-if="loading">
-        <div class="flex justify-center items-center mx-10">
-          <div class="inline-block animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-rose-700 mt-10 "></div> 
-        </div>
+        <loadingState />
       </div>
-      <div v-if="weatherData">
-        <div class="mx-5">
-          <p class="text-white font-medium Poppins-font mt-3">{{ weatherData.name }}, {{ weatherData.sys.country }}</p>
-          <div class="flex">
-            <p class="text-white font-medium Poppins-font mt-3">{{ weatherData.weather[0].main }}</p>
-            <img :src="'http://openweathermap.org/img/wn/' + weatherData.weather[0].icon + '.png'" />
-          </div>
-          <p class="text-white font-medium Poppins-font mt-3">{{ weatherData.main.temp }}°C</p>
-          <p class="text-white font-medium Poppins-font mt-3">{{ weatherData.main.humidity }}% humidity</p>
-          <p class="text-white font-medium Poppins-font mt-3">{{ weatherData.wind.speed }} km/h wind speed</p>
-        </div>
+
+      <div v-else-if="weatherData">
+        <appInfo :weatherData="weatherData"/>
       </div>
       <div v-if="errorMsg" class="flex justify-center my-10">
-        <span class="text-white font-medium Poppins-font uppercase">{{ errorMsg }}</span>
+        <errorMessage :errorMsg="errorMsg"/>
       </div>
     </div>
   </div>
@@ -35,8 +26,16 @@
 
 <script>
 import axios from 'axios';
+import loadingState from './loadingState.vue'
+import errorMessage from './errorMessage.vue'
+import appInfo from './appInfo.vue'
 
 export default {
+  components:{
+    loadingState,
+    errorMessage,
+    appInfo,
+  },
   data() {
     return {
       city: '',
@@ -67,7 +66,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 .bg-main{
